@@ -14,7 +14,7 @@ const ToDoList = ({completedTodos, incompletedTodos, isLoading}) =>{
     const message = <div>Loading...</div>
 
     const content = (
-        <div class="sm:mx-[5rem] md:mx-[10rem] lg:mx-[15rem] xl:mx-[25rem] 2xl:mx-[65rem]">
+        <div class="sm:mx-[5rem] md:mx-[10rem] lg:mx-[15rem] xl:mx-[25rem] 2xl:mx-[25rem]">
             <ToDoForm  incompletedTodos={incompletedTodos}></ToDoForm>
             <h3 class="font-bold text-center m-4">Incomplete:</h3>
             {incompletedTodos && incompletedTodos.map(todo => <ToDoItem key = {todo.id} todo={todo} />)}
