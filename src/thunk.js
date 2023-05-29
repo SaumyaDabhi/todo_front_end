@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const loadTodos = () => async (dispatch) => {
     dispatch(todosinProgress());
-    await axios.get("http://localhost:3001/todos")
+    await axios.get("https://todo-back-end-vrfq.onrender.com/todos")
     .then(response => {
         const todos = response.data;
         dispatch(todosSuccess(todos));
@@ -29,7 +29,7 @@ export const addTodos = (text) => async (dispatch) => {
     redirect: 'follow'
     };
 
-    await fetch("http://localhost:3001/todos", requestOptions)
+    await fetch("https://todo-back-end-vrfq.onrender.com/todos", requestOptions)
     .then(response => response.text())
     .then(result => dispatch(createTodo(result)))
     .catch(error => console.log('error', error));
@@ -41,7 +41,7 @@ export const deleteTodo = (id) => async (dispatch) => {
         redirect: 'follow'
       };
       
-      await fetch(`http://localhost:3001/todos/${id}`, requestOptions)
+      await fetch(`https://todo-back-end-vrfq.onrender.com/todos/${id}`, requestOptions)
         .then(response => response.text())
         .then(result => dispatch(removeTodo(id)))
         .catch(error => console.log('error', error));
@@ -53,7 +53,7 @@ export const finishTodo = (id) => async (dispatch) => {
         redirect: 'follow'
       };
       
-      fetch(`http://localhost:3001/todos/${id}/completed`, requestOptions)
+      fetch(`https://todo-back-end-vrfq.onrender.com/todos/${id}/completed`, requestOptions)
         .then(response => response.text())
         .then(result => dispatch(completeTodo(result)))
         .catch(error => console.log('error', error));
